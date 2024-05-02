@@ -1,0 +1,18 @@
+//base
+@import '@/assets/sass/base/_reset.scss';
+@import '../../assets/sass/base/color.scss';
+
+//全局通用
+*{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+#app-wrap{
+    position: relative;
+    top:110px;
+}
+
+a,button{
+    cursor: pointer;
+}
