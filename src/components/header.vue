@@ -5,33 +5,25 @@ export default {
     name:'headerCom',
     data(){
         return{
-            isMenuOpen:false,
-            navList:[
-                {
-                    name:"About",
-                    path:'/about'
-                },
-                {
-                    name:"My-UFO",
-                    path:'/customize'
-                },
-                {
-                    name:"Shop",
-                    path:'/shop'
-                },
+            isMenuOpen:false, 
+            navLinks:[
+                {to:'/',text:'最新消息'},
+                {to:'/',text:'關於根性'},
+                {to:'/',text:'教練團隊'},
+                {to:'/member',text:'會員方案'}
             ]
         }
     },
     mounted(){
-        const menuState = this.isMenuOpen;
-        console.log(menuState);
+
     },
     methods:{
-        handelMenu(){
-            this.isMenuOpen ? true:false;
+        checkMenuState(){
         },
         clickBurger(){
-            console.log('有按到');
+            this.isMenuOpen ? true:false;
+            const checkMenuState=this.isMenuOpen;
+            console.log(checkMenuState);
         }
     }
 }
@@ -40,46 +32,66 @@ export default {
 <template>
     <header>
         
-        <div id="logo">
-            <img src="@/assets/image/SadUFO-logo.png">
+        <div class="logo" @click="isMenuOpen=false">
+            <RouterLink to="/">
+                <img src="@/assets/image/LogoRow.png">
+            </RouterLink>
         </div>
 
-        <nav>
+        <div class="desktop-nav">
+            <nav>
+                <div class="nav-list">
+                    <ul>
+                        <li v-for="(links,index) in navLinks" :key="index"><RouterLink :to=links.to class="nav-link">{{ links.text }}</RouterLink></li>
+                    </ul>
+                </div>
+            </nav>
+            <RouterLink to="/member" class="login-btn">會員登入</RouterLink>
+        </div>
+
+        <div class="mobile-burger">
+
             <input type="checkbox"
             id="burger-switch"
             class="burger-checked"
             ref="burgerSwitch"
-            style="display: none;">
-
-            <label for="burger-switch" id="burger-btn"
-            @click="clickBurger">
+            style="display: none;"
+            v-model="isMenuOpen"
+            >
+    
+            <label for="burger-switch" 
+            id="burger-btn"
+            @click="clickBurger"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-
-            <div id="menu-area">
-                <div id="menu-list"
-                v-show="handelMenu">
-                    <h1>MENU</h1>
-                    <ul>
-                        <li>
-                            <RouterLink to="/about">About</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/customize">MyUFO</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/shop">Shop</RouterLink>
-                        </li>
-                    </ul>
+    
+            <div id="menu-window" v-if="isMenuOpen">
+                <div id="menu-area" @click="isMenuOpen=false">
+                    <div id="link-list">
+                        <ul>
+                            <li id="menu-title">
+                                MENU
+                            </li>
+                            <li v-for=" links in navLinks">
+                                <RouterLink 
+                                :to= links.to class="menu-link"
+                                @click="isMenuOpen=false">
+                                {{ links.text }}
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </nav>
+            
+        </div>
 
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/sass/component/header.scss";
 </style>
