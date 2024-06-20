@@ -7,10 +7,10 @@ export default {
         return{
             isMenuOpen:false, 
             navLinks:[
-                {to:'/',text:'News'},
-                {to:'/',text:'About'},
-                {to:'/',text:'Trainer'},
-                {to:'/member',text:'Member'}
+                {to:'/',text:'消息News'},
+                {to:'/',text:'關於About'},
+                {to:'/',text:'服務Serves'},
+                {to:'/',text:'支援Support'}
             ],
             isUserLogin:"",
         }

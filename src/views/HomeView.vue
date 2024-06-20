@@ -10,9 +10,9 @@ export default{
   data(){
     return{
       bannerImages:[
-        {src:"Banner1.jpg", alt:"Banner1"},
-        {src:"Banner2.jpg", alt:"banner2"},
-        {src:"Banner3.jpg", alt:"banner3"}
+        {src:"Banner.jpg", alt:"Banner1"},
+        {src:"Banner.jpg", alt:"banner2"},
+        {src:"Banner.jpg", alt:"banner3"}
       ],
       bannerLength:"",
       curIndex:0,
@@ -58,8 +58,8 @@ export default{
 <template>
     <section class="homepage-banner">
       <div class="banner-text">
-        <h1>根性KONJO</h1><br/>
-        <span>釋放您藏在表面下的潛力</span>
+        <h1>KONJO電能</h1><br/>
+        <span>電動載具充電樁/電力救援服務</span>
       </div>
       <div class="banner-view">
         <button id="left-btn" 
@@ -79,58 +79,6 @@ export default{
     </section>
 
     <section class="page-wrap">
-      <div class="section-title">
-        <h1>最新消息</h1>
-        <div class="news-wrap">
-          <fakePost/>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-wrap">
-      <div class="section-title">
-        <h1>關於根性</h1>
-        <div class="about-wrap">
-          <div class="about-tag">
-            <div>
-              <input type="radio" id="about-select1" value="equipment" v-model="handleAboutPage">
-              <label for="about-select1">器材設備</label>
-            </div>
-            <div>
-              <input type="radio" id="about-select2" value="space" v-model="handleAboutPage">
-              <label for="about-select2">附加空間</label>
-            </div>
-            <div>
-              <input type="radio" id="about-select3" value="rule" v-model="handleAboutPage">
-              <label for="about-select3">使用規則</label>
-            </div>
-          </div>
-          <div class="about-view">
-            <div id="equipment" v-if="handleAboutPage === 'equipment'">
-              <p>器材裝備</p>
-            </div>
-            <div id="space" v-if="handleAboutPage === 'space'">
-              <p>附加空間</p>
-            </div>
-            <div id="rule" v-if="handleAboutPage === 'rule'">
-              <p>使用規則</p>
-            </div>
-          </div> 
-        </div>
-      </div>
-    </section>
-
-    <section class="page-wrap">
-      <div class="section-title">
-        <h1>教練團隊</h1>
-
-      </div>
-    </section>
-    <section class="page-wrap">
-      <div class="section-title">
-        <h1>會員方案</h1>
-
-      </div>
     </section>
 </template>
 
