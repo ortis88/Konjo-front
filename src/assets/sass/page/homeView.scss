@@ -1,5 +1,5 @@
 section{
-    max-width: 1440px;
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
 }
@@ -104,7 +104,7 @@ section{
     display: block;
     position: relative;
     width: 100%;
-    height: 750px;
+    // height: 750px;
     border: 1px solid #d00;
     margin: 60px auto;
 }
@@ -117,8 +117,62 @@ section{
 }
 
 //最新消息
-.news-wrap{
-    display: grid;
+
+
+//關於根性
+
+.about-wrap{
     width: 100%;
-    border:1px solid #00d;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #00d;
+}
+
+.about-tag{
+    position: relative;
+    top:-10px;
+    text-align: end;
+    width: 11%;
+
+    div input{
+        display: none;
+    }
+
+    div input:checked + label{
+        color: #262626;
+        background-color: #fff;
+    }
+    
+    div label{
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px 0px 10px 10px;
+
+    }
+
+}  
+
+.about-view{
+    height: 650px;
+    width: 100%;
+    background-color: #fff;
+    
+}
+
+#equipment{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(181, 225, 239);
+}
+#space{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(239, 181, 227);
+}
+#rule{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(186, 239, 181);
 }

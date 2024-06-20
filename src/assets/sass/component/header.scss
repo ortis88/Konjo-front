@@ -32,13 +32,13 @@ header{
 
 //桌機板header配置
 .desktop-nav{
-    display: flex;
+    display: none;
     flex-grow: 1;
     align-items: center;
     justify-content: space-between;
 
-    @include tablet{
-        display: none;
+    @include desktop{
+        display: flex;
     }
 }
 
@@ -159,11 +159,27 @@ header{
         color: #555;
         text-decoration: none;
     }
+
     li {
         display: block;
         margin: 40px;
 
+        .menu-login{
+            position: relative;
+            top:-5px;
+            font-size: 5vw;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #262626;
 
+            @include tablet{
+                font-size: 24px;
+            }
+        }
        .menu-link{
             font-size: 40px;
             color: #000;
@@ -171,8 +187,8 @@ header{
             text-decoration: none;
         } 
     }
-        
-}
+}    
+
 
 //行動版漢堡點選後
 

@@ -7,15 +7,16 @@ export default {
         return{
             isMenuOpen:false, 
             navLinks:[
-                {to:'/',text:'最新消息'},
-                {to:'/',text:'關於根性'},
-                {to:'/',text:'教練團隊'},
-                {to:'/member',text:'會員方案'}
-            ]
+                {to:'/',text:'News'},
+                {to:'/',text:'About'},
+                {to:'/',text:'Trainer'},
+                {to:'/member',text:'Member'}
+            ],
+            isUserLogin:"",
         }
     },
     mounted(){
-
+        
     },
     methods:{
         checkMenuState(){
@@ -24,6 +25,12 @@ export default {
             this.isMenuOpen ? true:false;
             const checkMenuState=this.isMenuOpen;
             console.log(checkMenuState);
+        },
+        toTop(){
+            window.scrollTo ({
+                top:0,
+                behavior:'smooth'
+            })
         }
     }
 }
@@ -33,7 +40,7 @@ export default {
     <header>
         
         <div class="logo" @click="isMenuOpen=false">
-            <RouterLink to="/">
+            <RouterLink to="/" @click="toTop">
                 <img src="@/assets/image/LogoRow.png">
             </RouterLink>
         </div>
@@ -46,7 +53,7 @@ export default {
                     </ul>
                 </div>
             </nav>
-            <RouterLink to="/member" class="login-btn">會員登入</RouterLink>
+            <RouterLink to="/member" class="login-btn">Login</RouterLink>
         </div>
 
         <div class="mobile-burger">
@@ -74,6 +81,9 @@ export default {
                         <ul>
                             <li id="menu-title">
                                 MENU
+                            </li>
+                            <li>
+                                <RouterLink to="/member" class="menu-login">Login</RouterLink>
                             </li>
                             <li v-for=" links in navLinks">
                                 <RouterLink 
